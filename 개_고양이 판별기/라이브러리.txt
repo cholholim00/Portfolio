@@ -1,0 +1,5 @@
+# 데이터 분석 및 시각화 필수 패키지들(numpy, matplotlib, pandas)
+conda install -c conda-forge numpy matplotlib pandas -y
+
+# 인공지능 핵심 라이브러리 (PyTorch) 설치
+pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 numpy==1.26.4 --index-url https://download.pytorch.org/whl/cpu
