@@ -1,0 +1,357 @@
+@charset "UTF-8";
+body {
+    overflow-x: hidden;
+    background-color: rgb(253, 251, 247);
+}
+
+.my_header {
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid orange; */
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+    
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navbar {
+    height: 80px;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.my_find_coffee {
+    width: 100%;
+    /* padding: 100px; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(249, 246, 240);
+}
+
+.my_footer {
+    width: 100%;
+    padding: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b2b2b;  /* 진한 회색 */
+    color: white;
+    font-size: 14px;
+}
+.my_footer p {
+    margin: 0;
+    color: #e0e0e0;
+}
+.my_footer input.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+}
+.my_footer input::placeholder {
+    color: #aaa;
+}
+.my_footer small {
+    color: #aaa;
+}
+.my_footer .bi {
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s;
+}
+.my_footer .bi:hover {
+    color: #00bfff; /* 블루보틀 컬러 느낌 */
+}
+
+/* ###################################################### */
+
+.customer-container{
+    width: 100%;
+    max-width: 1889px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 64px 60px;
+    background-color: rgb(249, 246, 240);
+    display: flex;
+    gap: 65px;
+}
+aside {
+  width: 160px;
+  height: 623px;
+  float: left;
+  background-color: #f0f0f0;
+  padding: 10px;
+  background-color: rgb(249, 246, 240);
+  display: block;
+}
+.title_hide{
+    font-size: 20px;
+    font-style: normal;
+    width: 160px;
+    height: 30px;
+}
+h4{
+    font-size: 15px;
+}
+
+.side_text{
+    cursor: pointer;
+    width: 160px;
+    list-style: none;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+.side_text li {
+  margin-bottom: 10px;  
+}
+
+.information{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+}
+.information:hover {
+  border-bottom: 3px solid #212121;
+}
+.orderlist{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid; 
+}
+.addresslist{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+}
+.addresslist:hover{
+    border-bottom: 3px solid #212121; 
+}
+.logout{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* ###################################################### */
+
+.account-card{
+    flex: 1;
+    background-color: rgb(253, 251, 247);
+    background-origin: padding-box;
+    padding: 48px;
+}
+.card-detail{
+    margin-bottom: 64px;
+    height: auto;
+}
+.card-form{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* ###################################################### */
+
+h2{
+    width: 868px;
+    height: 42px;
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Noto Sans KR";
+    margin-right: 30px;
+    color: #333333;
+}
+
+/* ###################################################### */
+
+/* 주문 내역 스타일 */
+.order-item {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 25px;
+    background-color: white;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: box-shadow 0.2s ease;
+}
+
+.order-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.order-details {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ###################################################### */
+
+.product-image {
+    width: 120px;
+    height: 120px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ###################################################### */
+
+.detail-row {
+    display: flex;
+    margin-bottom: 12px;
+    align-items: flex-start;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 100px;
+    margin-right: 15px;
+    font-size: 15px;
+}
+
+.detail-value {
+    flex: 1;
+    color: #333;
+    font-size: 15px;
+    word-break: break-all;
+}
+
+.product-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.order-date {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.order-id {
+    font-family: 'Courier New', monospace;
+    background-color: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* ###################################################### */
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-processing {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ###################################################### */
+
+.more-button {
+    width: 100%;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.more-button:hover {
+    background-color: #5a6268;
+}
+
+/* ###################################################### */
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .customer-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    aside {
+        width: 100%;
+    }
+    
+    .account-card {
+        padding: 20px;
+    }
+    
+    .order-item {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .product-image {
+        width: 100px;
+        height: 100px;
+        align-self: center;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .detail-label {
+        min-width: auto;
+        margin-right: 0;
+        font-weight: 700;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+}

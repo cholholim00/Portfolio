@@ -1,0 +1,433 @@
+@charset "UTF-8";
+body {
+    overflow-x: hidden;
+    background-color: rgb(253, 251, 247);
+}
+
+.my_header {
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid orange; */
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+    
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navbar {
+    height: 80px;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.my_find_coffee {
+    width: 100%;
+    /* padding: 100px; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(249, 246, 240);
+}
+
+.my_footer {
+    width: 100%;
+    padding: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b2b2b;  /* 진한 회색 */
+    color: white;
+    font-size: 14px;
+}
+.my_footer p {
+    margin: 0;
+    color: #e0e0e0;
+}
+.my_footer input.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+}
+.my_footer input::placeholder {
+    color: #aaa;
+}
+.my_footer small {
+    color: #aaa;
+}
+.my_footer .bi {
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s;
+}
+.my_footer .bi:hover {
+    color: #00bfff; /* 블루보틀 컬러 느낌 */
+}
+
+/* ###################################################### */
+
+.customer-container{
+    width: 100%;
+    max-width: 1889px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 64px 60px;
+    background-color: rgb(249, 246, 240);
+    display: flex;
+    gap: 65px;
+}
+aside {
+  width: 160px;
+  height: 623px;
+  float: left;
+  background-color: #f0f0f0;
+  padding: 10px;
+  background-color: rgb(249, 246, 240);
+  display: block;
+}
+.title_hide{
+    font-size: 20px;
+    font-style: normal;
+    width: 160px;
+    height: 30px;
+}
+.side_text{
+    cursor: pointer;
+    width: 160px;
+    height: 90px;   
+    list-style: none; 
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+.side_text li {
+  margin-bottom: 10px;  
+}
+
+.information{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid; 
+}
+/* .information:hover {
+  border-bottom: 3px solid #212121;
+} */
+.orderlist{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+}
+.orderlist:hover{
+    border-bottom: 3px solid #212121; 
+}
+.addresslist{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+}
+.addresslist:hover{
+    border-bottom: 3px solid #212121; 
+}
+.logout{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* ###################################################### */
+
+.account-card{
+    float: right;
+    width: 964px;
+    height: 623px;
+
+    background-color: rgb(253, 251, 247); 
+    background-origin: padding-box;
+    padding-top: 48px;
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-bottom: 48px;
+    margin-left: 225px;
+    margin-right: 225px;
+}
+
+.content_list{
+    width: 160px;
+    height: 138px;
+}
+.customer-email{
+    font-weight: 402;
+    font-size: 14px;
+}
+
+.form-control{
+    border: 1px solid #bbb;
+    border-radius: 0;
+}
+.form-control2{
+    width: 868px;
+    height: 58px;
+    border-radius: 0;
+}
+
+.form-control:focus{
+	outline: none;
+	box-shadow: none;
+	border: 1px solid #bbb;
+}
+
+/* ###################################################### */
+
+.card-detail{
+    margin-top: 64px;
+    height: 171px;
+}
+.card-header{
+    height: 33px;
+}
+h2{
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Noto Sans KR";
+    margin-right: 30px;
+    color: #333333;
+}
+h5{
+    font-size: 13px;
+    font-weight: 500;
+}
+h4{
+    font-size: 15px;
+}
+
+
+.custom-checkbox {
+  display: none;
+}
+
+.custom-checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+  user-select: none;
+  gap: 5px;
+}
+
+.custom-checkbox + label::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+
+  border: 1px solid #333;
+  background-color: #fff;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.custom-checkbox:checked + label::before {
+  background-color: #333;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.00039 11.1998L2.80039 7.99984L1.86606 8.93317L6.00039 13.0665L15.0004 4.0665L14.0671 3.13317L6.00039 11.1998Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: #333;
+}
+
+/* ###################################################### */
+
+.btn-primary{
+    background-color: #5D5D5D;
+    color: white;
+    width: 426px;
+    height: 50px;
+
+    border: none;
+    border-radius: 0;
+    
+}
+.btn-primary:hover{
+    background-color: #212121;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-primary6{
+    background-color: #5D5D5D;
+    color: white;
+    width: 426px;
+    height: 50px;
+
+    border: none;
+    border-radius: 0;
+    padding-top: 6px;
+}
+.btn-primary6:hover{
+    background-color: #212121;
+    color: white;
+    cursor: pointer;
+}
+
+/* ###################################################### */
+
+a.checktype {
+  all: unset;
+  color: black !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ###################################################### */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+}
+.login-popup {
+    width: 620px;
+    background: #faf6f1;
+    padding-top: 104px;
+    margin-left: auto;
+    height: 100vh;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1001;
+}
+.login-popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.login-popup h2 {
+    margin-bottom: 10px;
+}
+.login-popup p.subtext {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 30px;
+}
+/* ###################################################### */
+
+.close{
+    width: 11px;
+    height: 11px;
+}
+
+.p_login{
+    font-size: 24px;
+}
+.subtext {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.form-customer{
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-left: 47px;
+    margin-right: 47px;
+}
+.form-all{
+    width: 620px;
+    height: 535px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.form-body{
+    width: 343px;
+    height: 310px;
+
+    padding-bottom: 8px;
+
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+
+    text-align: left;
+}
+.form-control1{
+    width: 341px;
+    height: 58px;
+    border: 1px solid #bbb;
+    border-radius: 0;
+    margin-bottom: 10px;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.form-control1:focus{
+	outline: none;
+	box-shadow: none;
+	border: 1px solid #bbb;
+}
+
+
+
+
+/* ###################################################### */
+
+
+.btn-primary3{
+    width: 343px;
+    height: 45px;
+    background-color: #5D5D5D;
+    color: white;
+    border-radius: 1px;
+}
+.btn-primary3:hover{
+    background-color: #212121;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-primary4{
+    width: 343px;
+    height: 45px;
+
+    border-color: black;
+    border-radius: 1px;
+    color: black;
+}
+.btn-primary4:hover{
+    border-color: rgb(0,0,0,0.5);
+    border-radius: 1px;
+    opacity: 0.8;
+    cursor: pointer;
+}

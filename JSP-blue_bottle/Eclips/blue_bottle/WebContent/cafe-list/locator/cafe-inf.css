@@ -1,0 +1,166 @@
+/* background-color: rgb(249, 246, 240); */
+body {
+	background-color: rgb(253, 251, 247);
+}
+.nt_font * {
+    font-family: "Noto Sans KR", sans-serif;
+}
+.headline h1{
+    font-size: 26px;
+    font-weight: 350;
+}
+a.location-link {
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.68px;
+    text-decoration: none; 
+    color: #333;
+    justify-content: center;
+    margin: 0 auto;
+}
+.body-article {
+    margin-bottom: 50px;
+}
+.body-article strong {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: start;
+}
+.body-article p, .card-body p {
+    font-size: 14px;
+    line-height: 190%;
+}
+
+.img-box img {
+    width: 100%;
+    min-height: 350px;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.N-link {
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+}
+
+/* 지도 */
+#map{
+	width:100%;
+	height:400px;
+}
+@media screen and (min-width: 576px){
+	#map{
+	  height:500px;
+	}
+}
+
+.map-article span {
+	display: block;
+    font-size: 24px;
+    line-height: 140%;
+    margin-bottom: 20px;
+}
+.map-article p {
+    font-size: 14px;
+    line-height: 190%;
+}
+
+
+/* 카페상세 이미지 */
+.cafe-img {
+    text-align: center;
+}
+.cafe-img  {
+    max-width: 100%;
+    min-height: 350px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+/* 이미지 카드 슬라이드 */
+.card {
+    border: none;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #e1e1e1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: calc(50% - 85px);
+  transform: translateY(-50%);
+}
+.carousel-item {
+    margin-right: 0;
+    flex: 0 0 calc(100%/3);
+    display: block;
+}
+.carousel-inner {
+    display: flex;
+    overflow-x: auto;
+}
+.card .img-wrapper {
+    min-width: 250px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .img-wrapper img {
+    width: 100%;
+    object-fit: cover;
+}
+.card-body {position: relative;}
+.card-body strong {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+@media screen and (min-width: 994px) {
+    .headline h1 {
+        font-size: 40px;
+    }
+    .map-article p {
+        font-size: 15px;
+        text-align: start;
+    }
+    .img-box img {
+        width: 100%;
+    }
+    .headlineH2 {
+        font-size: 30px;
+    }
+    .card-body .l-l-a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 0;
+    }
+    .map-box {
+        height: 450px;
+}
+
+}
+
+.btn {
+    background: #fff;
+    color: #000;
+    border: 1px solid darkgray;
+    border-radius: 0;
+}
+.btn-primary:hover {
+    background: #eee;
+    color: #222;
+    border-color: darkgray;
+}

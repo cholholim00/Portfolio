@@ -1,0 +1,593 @@
+@charset "UTF-8";
+body {
+    overflow-x: hidden;
+    background-color: rgb(253, 251, 247);
+}
+
+.my_header {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navbar {
+    height: 80px;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.my_find_coffee {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(249, 246, 240);
+}
+
+.my_footer {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b2b2b;
+    color: white;
+    font-size: 14px;
+}
+.my_footer p {
+    margin: 0;
+    color: #e0e0e0;
+}
+.my_footer input.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+}
+.my_footer input::placeholder {
+    color: #aaa;
+}
+.my_footer small {
+    color: #aaa;
+}
+.my_footer .bi {
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s;
+}
+.my_footer .bi:hover {
+    color: #00bfff;
+}
+
+/* ###################################################### */
+
+.customer-container{
+    width: 100%;
+    max-width: 1889px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 64px 60px;
+    background-color: rgb(249, 246, 240);
+    display: flex;
+    gap: 65px;
+}
+aside {
+  width: 160px;
+  height: 623px;
+  float: left;
+  background-color: #f0f0f0;
+  padding: 10px;
+  background-color: rgb(249, 246, 240);
+  display: block;
+}
+.title_hide{
+    font-size: 20px;
+    font-style: normal;
+    width: 160px;
+    height: 30px;
+}
+h4{
+    font-size: 15px;
+}
+
+.side_text{
+    cursor: pointer;
+    width: 160px;
+    list-style: none;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+.side_text li {
+  margin-bottom: 10px;  
+}
+
+.information{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+}
+.information:hover {
+  border-bottom: 3px solid #212121;
+}
+.orderlist{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+}
+.orderlist:hover{
+    border-bottom: 3px solid #212121; 
+}
+.addresslist{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid; 
+}
+.logout{
+    text-align: left;
+    color: black;
+    text-decoration: none;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* ###################################################### */
+
+.account-card{
+    flex: 1;
+    background-color: rgb(253, 251, 247);
+    background-origin: padding-box;
+    padding: 48px;
+}
+.card-detail{
+    margin-bottom: 64px;
+    height: auto;
+}
+.card-form{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* ###################################################### */
+
+h2{
+    width: 868px;
+    height: 42px;
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Noto Sans KR";
+    margin-right: 30px;
+    color: #333333;
+}
+
+/* ###################################################### */
+
+.address-item {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 25px;
+    background-color: white;
+    transition: box-shadow 0.2s ease;
+    position: relative;
+}
+
+.address-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.address-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.default-badge {
+    background-color: #007bff;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.address-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: #5a6268;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.address-details {
+    margin-bottom: 15px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: flex-start;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 80px;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.detail-value {
+    flex: 1;
+    color: #333;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.address-full {
+    color: #2c3e50;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+
+
+.set-default-btn {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.set-default-btn:hover {
+    background-color: #138496;
+}
+
+
+.a_plus {
+    width: 100%;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.a_plus:hover {
+    background-color: #5a6268;
+}
+
+
+/* ###################################################### */
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .customer-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    aside {
+        width: 100%;
+    }
+    
+    .account-card {
+        padding: 20px;
+    }
+    
+    .address-item {
+        padding: 20px;
+    }
+    
+    .address-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .address-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .detail-label {
+        min-width: auto;
+        margin-right: 0;
+        font-weight: 700;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+}
+
+/* ###################################################### */
+
+#overlay {
+    position: fixed;
+    top: 0; 
+    bottom: 0;
+    left: 0;
+    right: 0; 
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; 
+}
+
+
+.popup {
+    background-color: rgb(249, 246, 240);
+    background-image: none;
+
+    position: relative;
+
+    width: 608px;
+    height: 726px;
+    overflow-y: auto;
+
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.popup-header {
+    width: 480px;
+    height: 79px;
+}
+.popup-body {
+    width: 480px;
+    height: 500px;
+    font-size: 14px;
+}
+.popup-body-top{
+    width: 475px;
+    height: 236px;
+    margin-bottom: 20px;
+}
+
+/* ###################################################### */
+
+.popup-header strong{
+    font-size: 14px;
+    height: 19px;
+    width: 480px;
+}
+.popup-header p{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/* ###################################################### */
+
+.top-label{
+    text-align: left;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+
+    width: 78px;
+    height: 22px;
+}
+
+.body-input{
+    width: 475px;
+    height: 236px;
+    margin-bottom: 20px;
+}
+
+/* ###################################################### */
+
+.b-input1:focus,
+.b-input2:focus,
+.b-input3:focus,
+.b-input4:focus,
+.b-input5:focus,
+.b-input6:focus{
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.4);
+}
+.b-input1::placeholder,
+.b-input2::placeholder,
+.b-input3::placeholder,
+.b-input4::placeholder,
+.b-input5::placeholder,
+.b-input6::placeholder{
+    color: rgba(0,0,0,0.6);
+}
+.b-input1,
+.b-input2,
+.b-input3,
+.b-input4,
+.b-input5{
+    width: 475px;
+    height: 58px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    border: 1px solid rgb(218, 218, 218);
+    margin: 1px;
+    margin-bottom: 10px;
+}
+
+/* ###################################################### */
+
+.popup-body-bottom{
+    width: 475px;
+    height: 272px;
+    margin-bottom: 20px;
+}
+.bottom-label{
+    text-align: left;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+
+    width: 78px;
+    height: 22px;
+}
+
+/* ###################################################### */
+
+.b-input6{
+    width: 341px;
+    height: 58px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    border: 1px solid rgb(218, 218, 218);
+    margin: 1px;
+    margin-bottom: 10px;
+}
+
+.latter{
+    width: 475px;
+    height: 60px;
+
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.latter-btn{
+    width: 120px;
+    height: 58px;
+
+    color: rgb(51,51,51);
+    border: 1px solid rgb(51, 51, 51);
+    padding: 0;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255,255);
+    cursor: pointer;
+}
+
+/* ###################################################### */
+.custom-checkbox {
+  display: none;
+}
+.custom-checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: #333;
+  user-select: none;
+  gap: 5px;
+}
+
+.custom-checkbox + label::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+
+  border: 1px solid #333;
+  background-color: #fff;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.custom-checkbox:checked + label::before {
+  background-color: #333;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.00039 11.1998L2.80039 7.99984L1.86606 8.93317L6.00039 13.0665L15.0004 4.0665L14.0671 3.13317L6.00039 11.1998Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: #333;
+}
+
+/* ###################################################### */
+
+
+.popup .btn-save {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    background-color: rgb(204, 204, 204);
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}

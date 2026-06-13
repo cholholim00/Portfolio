@@ -1,0 +1,348 @@
+/* 전체 body 기본 스타일 */
+/* 블렌드 섹션 추가 스타일 */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 30;
+    padding: 0;
+}
+
+.my_header {
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid orange; */
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.navbar {
+    height: 80px;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.my_carousel {
+    position: absolute;
+    top: 60%;
+    left: 15%;
+}
+
+
+/* 배송 정보 텍스트 스타일링 */
+.shipping-info {
+    font-size: 0.85rem; /* 글자 크기 */
+    color: #888; /* 글자 색상 */
+    background-color: #f8f8f8; /* 배경 색상 */
+}
+
+/* 메인 이미지 배너 스타일링 (상대적 위치 설정) */
+.main-banner {
+    position: relative; /* 이미지 내에 텍스트 절대위치 설정 가능 */
+    text-align: left;
+    color: white; /* 텍스트 기본색상 흰색 */
+}
+
+/* 메인 이미지 스타일링 */
+.main-banner img {
+    width: 100%; /* 이미지가 페이지 전체 너비 차지 */
+    height: 67%; /* 높이는 비율에 맞게 자동 조정 */
+}
+
+/* 메인 배너 이미지 위에 표시될 텍스트 스타일링 */
+.banner-text {
+    position: absolute; /* 절대 위치 (부모 요소 기준) */
+    bottom: 20%; /* 하단에서 15% 위 */
+    left: 4%; /* 왼쪽에서 5% 위치 */
+    font-size: 2.7em; /* 폰트 크기 */
+    font-weight:normal; /* 폰트 굵게 */
+    color: #ffffff; /* 텍스트 색상 흰색 */
+}
+
+/* 하단 메뉴 카테고리 영역 스타일링 */
+.bottom-menu {
+    border-top: 1px solid #eee; /* 상단 테두리 추가 */
+    padding-top: 15px; /* 상단 내부 여백 추가 */
+}
+
+/* 하단 메뉴 링크 스타일링 */
+.menu-link {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #555; /* 링크 글자 색상 */
+    margin: 0 15px; /* 좌우 여백 */
+    transition: color 0.3s; /* 마우스 호버 시 색상 변경 시 부드러운 전환효과 */
+}
+
+/* 메뉴 링크 마우스 오버시 스타일 변경 */
+.menu-link:hover {
+    color: #007BFF; /* 마우스 오버시 글자 색상 변경 */
+}
+
+
+.my_footer {
+    width: 100%;
+    padding: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b2b2b;  /* 진한 회색 */
+    color: white;
+    font-size: 14px;
+}
+.my_footer p {
+    margin: 0;
+    color: #e0e0e0;
+}
+.my_footer input.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+}
+.my_footer input::placeholder {
+    color: #aaa;
+}
+.my_footer small {
+    color: #aaa;
+}
+.my_footer .bi {
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s;
+}
+.my_footer .bi:hover {
+    color: #00bfff; /* 블루보틀 컬러 느낌 */
+}
+
+.card-1 {
+    width: 36px;
+    height: auto;
+    background-color: #fdfbf7;
+    border: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 32px
+}
+.card .blend-label,
+.card .coffee-name {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.card:hover .blend-label,
+.card:hover .coffee-name {
+  color: white;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: #f7f4ee;
+    cursor: pointer; /* 마우스 커서 포인터로 변경 */
+}
+
+.image-wrapper img {
+
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.05); /* 마우스 올리면 살짝 확대 */
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 36px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
+.caption-top {
+   font-size: 12px;
+   font-weight: 500;
+   color: rgba(0, 0, 0, 0.6);
+   margin-bottom: 2px;
+}
+  
+.caption-bottom {
+   font-size: 14px;
+   font-weight: 700;
+   color: rgba(0, 0, 0, 0.87);
+   margin-bottom: 4px;
+}
+
+.caption-status {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f2f2f2;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    height: 40px;
+    line-height: 30px;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+a.add-to-cart {
+    display: inline-block;
+    padding: 5px 10px;
+    height: 40px;
+    width: 100%;
+    background-color: rgb(84, 84, 84);
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* 맨 아래로 내림 */
+}
+  
+  a.add-to-cart:hover {
+    background-color: black;      /* 커서가 닿으면 검은 배경 */
+    color: white;                 /* 텍스트는 흰색으로 (가독성) */
+  }
+
+.caption-bottom {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+}
+
+.hover-caption-top {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: bold;
+    z-index: 5;
+    transition: opacity 0.4s ease;
+    pointer-events: none; /* 클릭 방지 */
+  }
+  
+.hover-caption-top .sub {
+    font-weight: normal;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+  
+.card-1:hover .caption-status {
+    opacity: 1;
+  }
+.card-1:hover .hover-caption-top {
+    opacity: 1;
+  }
+
+.caption-bottom {
+    font-weight: bold;
+    margin-top: 2px;
+}
+/* 기본 이미지 보이게 */
+.base-img {
+    z-index: 1;
+    opacity: 1;
+}
+/* hover 이미지는 처음엔 투명 */
+.hover-img {
+    z-index: 2;
+    opacity: 0;
+}
+/* 카드에 마우스 올리면 hover 이미지 보이고, 기본 이미지 감춤 */
+.card-1:hover .hover-img {
+    opacity: 1;
+}
+.card-1:hover .base-img {
+    opacity: 0;
+}
+
+
+
+.ripon {
+    position: absolute;
+top: 12px;
+right: -36px;
+width: 145px;
+height: 30px;
+background-color: #555;
+color: white;
+font-size: 13px;
+font-weight: bold;
+display: flex;
+align-items: center;
+justify-content: center;
+ z-index: 10;
+transform: rotate(45deg);
+}
+
+.ripon span {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+/* 버튼 스타일 */
+.btn-hover-impact {
+    background-color: #f8f6ef !important;
+    color: #212529 !important;
+    border: 1px solid #212529 !important;
+  }
+  
+  .btn-hover-impact:hover {
+    background-color: #f8f6ef !important;
+    color: #212529 !important;
+    border: 1px solid #212529 !important;
+  }
+  
+  .btn-hover-impact h6 {
+    transition: opacity 0.3s ease;
+    color: inherit !important;
+  }
+  
+  .btn-hover-impact:hover h6 {
+    opacity: 0.6;
+    color: inherit !important;
+  }
+
+.circle-img-wrapper {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.circle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}

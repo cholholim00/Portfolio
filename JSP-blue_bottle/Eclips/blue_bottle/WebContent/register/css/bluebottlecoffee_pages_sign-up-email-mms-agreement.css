@@ -1,0 +1,119 @@
+@charset "UTF-8";
+body {
+    overflow-x: hidden;
+    background-color: rgb(253, 251, 247);
+}
+
+.my_header {
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid orange; */
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+    
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navbar {
+    height: 80px;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.my_find_coffee {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(249, 246, 240);
+}
+
+.my_footer {
+    width: 100%;
+    padding: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b2b2b;  /* 진한 회색 */
+    color: white;
+    font-size: 14px;
+}
+.my_footer p {
+    margin: 0;
+    color: #e0e0e0;
+}
+.my_footer input.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+}
+.my_footer input::placeholder {
+    color: #aaa;
+}
+.my_footer small {
+    color: #aaa;
+}
+.my_footer .bi {
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s;
+}
+.my_footer .bi:hover {
+    color: #00bfff; /* 블루보틀 컬러 느낌 */
+}
+
+/* ###################################################### */
+
+.main-content{
+    max-width: 1889px;
+    max-height: 7944px;
+    width: 100%;
+    height: 100%;
+}
+.form-content{
+    width: 726px;
+    height: 403px;
+
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    margin-left: 581px;
+    margin-right: 581px;
+}
+
+.header-content{
+    width: 606px;
+    height: 67px;
+    padding-bottom: 40px;
+}
+h1{
+    height: 67px;
+    margin-bottom: 40px;
+    text-align: left;
+    font-size: 52px;
+    font-weight: 400;
+}
+
+.body-content{
+    width: 606px;
+    height: 240px;
+    font-size: 16px;
+}
+
+p{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    
+}

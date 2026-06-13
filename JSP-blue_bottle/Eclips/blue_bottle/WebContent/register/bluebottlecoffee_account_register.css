@@ -1,0 +1,222 @@
+@charset "UTF-8";
+body {
+    overflow-x: hidden;
+    background-color: rgb(253, 251, 247);
+}
+
+.my_header {
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid orange; */
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+    
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navbar {
+    height: 80px;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.my_find_coffee {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(249, 246, 240);
+}
+
+.my_footer {
+    width: 100%;
+    padding: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b2b2b;  /* 진한 회색 */
+    color: white;
+    font-size: 14px;
+}
+.my_footer p {
+    margin: 0;
+    color: #e0e0e0;
+}
+.my_footer input.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+}
+.my_footer input::placeholder {
+    color: #aaa;
+}
+.my_footer small {
+    color: #aaa;
+}
+.my_footer .bi {
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s;
+}
+.my_footer .bi:hover {
+    color: #00bfff; /* 블루보틀 컬러 느낌 */
+}
+
+/* ###################################################### */
+
+.customer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.customer-join{
+    /* width: 478px; */
+    width: 100%;
+    max-width: 478px;
+    height: 1260px;
+/*     max-height: 1260px; */
+
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    margin-left: 705px;
+    margin-right: 705px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-control{
+    width: 500px;
+    height: 450px;
+
+    padding-top: 26px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    padding-right: 15px;
+	
+	border-radius: 0;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    border-style: solid;
+
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+
+    border: 1px solid #dadada;
+}
+.form-control:focus{
+	outline: none;
+	box-shadow: none;
+	border: 1px solid #bbb;
+}
+
+/* ###################################################### */
+
+.title-text{
+    text-align: center;
+}
+.p-title{
+    font-size: 24px;
+    font-weight: 350;
+}
+.sub-text{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+.p-text{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 190%;
+}
+
+/* ###################################################### */
+
+.card-check{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5px;
+    text-align: left;
+}
+.custom-checkbox {
+  display: none;
+  cursor: pointer;
+}
+
+.custom-checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  color: #333;
+  user-select: none;
+  gap: 5px;
+}
+
+.custom-checkbox + label::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+
+  border: 1px solid #333;
+  background-color: #fff;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.custom-checkbox:checked + label::before {
+  background-color: #333;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.00039 11.1998L2.80039 7.99984L1.86606 8.93317L6.00039 13.0665L15.0004 4.0665L14.0671 3.13317L6.00039 11.1998Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: #333;
+}
+
+/* ###################################################### */
+
+.btn-primary{
+    background-color: #5D5D5D;
+    color: white;
+    width: 426px;
+    height: 50px;
+
+    border: none;
+    border-radius: 0;
+}
+.btn-primary:hover{
+    background-color: #212121;
+    color: white;
+    cursor: pointer;
+}
+
+.terms-link {
+  color: #212121; /* 파란색 */
+  text-decoration: underline; /* 밑줄 추가 (선택사항) */
+  cursor: pointer;
+}
+
+

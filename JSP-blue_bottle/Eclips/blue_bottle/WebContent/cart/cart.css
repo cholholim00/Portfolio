@@ -1,0 +1,117 @@
+body {
+    overflow-x: hidden;
+    background-color: rgb(253, 251, 247);
+}
+
+.my_header {
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid orange; */
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+    
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navbar {
+    height: 80px;
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ======================================================= */
+.my_cart {
+    background-color: rgb(249, 246, 240);
+    /* padding: 5%; */
+}
+.my_cart_left {
+    padding-top: 70px;
+    padding-left: 60px;
+    padding-right: 0px;
+}
+.my_cart_right {
+    /* background-color: rgb(230, 230, 230); */
+    padding-top: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.my_offcanvas_prom {
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* ======================================================= */
+.my_find_coffee {
+    width: 100%;
+    padding: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(249, 246, 240);
+}
+
+.my_footer {
+    width: 100%;
+    padding: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b2b2b;  /* 진한 회색 */
+    color: white;
+    font-size: 14px;
+}
+.my_footer p {
+    margin: 0;
+    color: #e0e0e0;
+}
+.my_footer input.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+}
+.my_footer input::placeholder {
+    color: #aaa;
+}
+.my_footer small {
+    color: #aaa;
+}
+.my_footer .bi {
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s;
+}
+.my_footer .bi:hover {
+    color: #00bfff; /* 블루보틀 컬러 느낌 */
+}
+
+/*네비게이션바 사라지게*/
+
+/* 네비게이션 바 기본 상태 */
+.custom-navbar {
+  transition: top 0.3s; /* 네비게이션 바가 이동할 때 부드럽게 애니메이션 */
+  position: fixed;
+  width: 100%;
+  z-index: 1000;  /* 다른 요소들보다 위에 */
+}
+.custom-navbar.scrolled {
+  background-color: white; /* 원하는 배경색 */
+  top: 0; /* 고정 위치 */
+}
+/* 네비게이션 바 숨기기 (스크롤 내리면) */
+.custom-navbar.hidden {
+  top: -80px; /* 네비게이션 바를 위로 숨깁니다 */
+}
+
+/*//네비게이션바 사라지게*/

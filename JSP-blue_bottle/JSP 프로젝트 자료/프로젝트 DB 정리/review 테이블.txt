@@ -1,0 +1,47 @@
+# review 테이블
+/ 컬럼명 			/ 타입 		/ 속성? 		/ 상세정보
+| review_id 			| int 			| autoincrese, PK	| 리뷰아이디
+| rating 			| float 		| 			| 별점
+| title				| varchar2(30)	|			| 제목
+| content			| vachar2(3000)	|			| 내용
+| postdate			| date			|			| 게시일
+| visitCount 		| int			|			| 조회수
+| user_id			| ?			| member FK	| 유저아이디 (외래키)
+| product_id		| ?			| product FK	| 제품아이디 (외래키)
+| product_category	| ?			| product FK	| 제품카테고리 (외래키)
+
+
+
+# review 테이블 이미지 테이블
+/ 컬럼명 		/ 타입 		/ 속성? 		/ 상세정보
+| image_id		|  int	  		| autoincrese, pk	| 이미지 고유번호 (기본키)
+| review_id		|  varchar2(100)	| review fk		| 리뷰 아이디 (외래키)
+| image_url  	|  varchar2(255)	| 			| 이미지 경로
+
+# review 관리용 테이블?
++ | user_id			| ?			| member FK	| 관리자 아이디
+
+# member 관리용 테이블?
++ | user_id			| ?			| member FK	| 관리자 아이디
+
+
+
+
+
+<script>
+  var a = 1;
+  docu
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
