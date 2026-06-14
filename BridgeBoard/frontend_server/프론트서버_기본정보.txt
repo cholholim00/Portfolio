@@ -1,0 +1,38 @@
+필수 디렉토리 구조
+bridgeboard-front/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── VideoArea.jsx       ← 메인 스피커 + 참여자
+│   │   ├── AIAssistant.jsx     ← 오른쪽 패널
+│   │   ├── Sidebar.jsx         ← 왼쪽 네비게이션
+│   │   └── Controls.jsx        ← 미디어 컨트롤 버튼
+│   ├── pages/
+│   │   └── Dashboard.jsx       ← 전체 레이아웃
+│   ├── api/
+│   │   └── emotion.js          ← FastAPI 호출 함수
+│   ├── App.jsx
+│   └── index.js
+├── package.json
+└── .env                        ← API URL 설정
+
+================================================
+설치 및 실행명령어
+# 프로젝트 생성
+npx create-react-app frontend_server
+cd frontend_server
+
+# 필요 패키지 설치
+npm install axios
+npm install axios recharts
+npm install framer-motion
+
+# 백엔드 서버
+ngrok.exe 실행
+ngrok http 8000
+
+# 리액트 서버를 HTTPS 모드로 재실행
+npm start
+
+==================================================

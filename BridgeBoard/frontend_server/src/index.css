@@ -1,0 +1,18 @@
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+.animate-slideUp { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* 시각 보조 모드 시 모든 버튼에 강력한 포커스 효과 */
+.visual-mode *:focus {
+  outline: 5px solid #eab308 !important;
+  outline-offset: 4px;
+}
