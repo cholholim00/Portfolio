@@ -1,0 +1,31 @@
+# 환경변수
+.env
+
+# 벡터 DB (용량 큼)
+vectordb/
+
+# 수집 데이터
+data/raw/
+data/processed/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/ragas_result.png
+notebooks/ragas_result.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 테스트용 임시 DB
+vectordb_test/
+
+# IDE
+.vscode/
+.idea/

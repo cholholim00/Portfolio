@@ -1,0 +1,37 @@
+# Data Collection
+biopython
+
+# Text Processing & RAG
+langchain
+langchain-community
+langchain-openai
+langchain-text-splitters
+tiktoken
+
+# Embedding
+sentence-transformers
+
+# Vector DB
+chromadb
+
+# LLM
+openai
+
+# API
+fastapi
+uvicorn
+pydantic
+
+# UI
+streamlit
+
+# Evaluation
+ragas
+datasets
+scikit-learn
+
+# Utils
+python-dotenv
+pandas
+tqdm
+matplotlib
