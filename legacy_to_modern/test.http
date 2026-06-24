@@ -1,0 +1,9 @@
+### 게시글 작성 검증 테스트 (제목을 고의로 비움)
+POST http://localhost:8080/api/legacy/board/write
+Content-Type: application/json
+
+{
+  "title": "",
+  "content": "내용은 잘 적었지만 제목을 빼먹어 보겠습니다.",
+  "author": "tester01"
+}

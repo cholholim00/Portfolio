@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -34,16 +34,18 @@ public class LegacyBoardController {
         return jdbcTemplate.queryForMap(secureSql, id);
     }
 
-    // 3. 게시글 작성 API
+    // 3. 게시글 작성 API (Validation 검증 레이어 추가)
     @PostMapping("/write")
-    public String writeBoard(@RequestBody Map<String, String> param) throws Exception {
-        String title = param.get("title");
-        String content = param.get("content");
-        String author = param.get("author");
+    public String writeBoard(@Valid @RequestBody BoardWriteRequest req) throws Exception {
+        // @Valid가 BoardWriteRequest의 규칙을 검사하여 통과한 경우에만 아래 로직이 실행됩니다.
 
-        // (참고) 나중에 고도화 단계에서 이 부분도 물음표(?) 바인딩 방식으로 개선하면 좋습니다!
-        String sql = "INSERT INTO board_legacy (title, content, author) VALUES ('" + title + "', '" + content + "', '" + author + "')";
-        jdbcTemplate.execute(sql);
+        String title = req.getTitle();
+        String content = req.getContent();
+        String author = req.getAuthor();
+
+        // 파라미터 바인딩 방식을 적용하여 글쓰기 기능도 인젝션으로부터 보호합니다.
+        String secureSql = "INSERT INTO board_legacy (title, content, author) VALUES (?, ?, ?)";
+        jdbcTemplate.update(secureSql, title, content, author);
 
         return "success";
     }
