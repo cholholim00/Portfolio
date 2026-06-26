@@ -46,7 +46,7 @@ export default function BridgeBoard() {
   const isTtsOnRef = useRef(false);    
   const lastProcessedText = useRef("");
 
-  // 🚨 [수정됨] ngrok 터널링 주소를 입력하는 곳입니다. (http:// 나 https:// 는 빼고 적어주세요!)
+  // 🚨 ngrok 터널링 주소를 입력하는 곳입니다. (http:// 나 https:// 는 빼고 적어주세요!)
   const NGROK_URL = "hadlee-isocyano-photomechanically.ngrok-free.dev";
 
   const rtcConfig = {
@@ -106,16 +106,16 @@ export default function BridgeBoard() {
         if (localVideoRef.current) localVideoRef.current.srcObject = stream;
         initWebRTC();
       })
-      .catch((err) => {  // 👈 여기에 err 추가
-      console.error("🚨 카메라/마이크 접근 실패 원인:", err); // 👈 이 줄 추가!!
+      .catch((err) => {  
+      console.error("🚨 카메라/마이크 접근 실패 원인:", err); 
       setCamOn(false);
       navigator.mediaDevices.getUserMedia({ video: false, audio: true })
         .then((audioStream) => {
           localStream.current = audioStream;
           initWebRTC();
         })
-        .catch((err2) => { // 👈 여기도 err2 추가
-          console.error("🚨 오디오 전용 접근 실패 원인:", err2); // 👈 이 줄 추가!!
+        .catch((err2) => { 
+          console.error("🚨 오디오 전용 접근 실패 원인:", err2); 
           peerConnection.current = new RTCPeerConnection(rtcConfig); 
         });
     });
@@ -133,7 +133,7 @@ export default function BridgeBoard() {
   useEffect(() => {
     if (!isLoggedIn) return;
     const connectWebSocket = () => {
-      // 🚨 [수정됨] 외부망 접속을 위해 보안 웹소켓(wss://)과 ngrok 주소를 사용합니다.
+      // 🚨 외부망 접속을 위해 보안 웹소켓(wss://)과 ngrok 주소를 사용합니다.
       ws.current = new WebSocket(`wss://${NGROK_URL}/ws/analyze`);
       ws.current.onopen = () => setConnected(true);
 
@@ -177,7 +177,6 @@ export default function BridgeBoard() {
 
            if (isTtsOnRef.current) {
               window.speechSynthesis.cancel();
-              // 감정 수식어를 빼고 data.text 만 직관적으로 넣습니다.
               const utterance = new SpeechSynthesisUtterance(data.text);
               utterance.lang = 'ko-KR';
               utterance.rate = 1.0;
@@ -262,6 +261,21 @@ export default function BridgeBoard() {
     if (!recognitionRef.current) return;
     if (isSttOnRef.current) { isSttOnRef.current = false; setIsSttOn(false); recognitionRef.current.stop(); }
     else { isSttOnRef.current = true; setIsSttOn(true); try { recognitionRef.current.start(); } catch (e) {} }
+  };
+
+  // 🎤 [누르고 말하기 전용 STT 제어 함수]
+  const startPttRecording = () => {
+    if (!recognitionRef.current) return;
+    isSttOnRef.current = true; 
+    setIsSttOn(true); 
+    try { recognitionRef.current.start(); } catch (e) {}
+  };
+
+  const stopPttRecording = () => {
+    if (!recognitionRef.current) return;
+    isSttOnRef.current = false; 
+    setIsSttOn(false); 
+    try { recognitionRef.current.stop(); } catch (e) {}
   };
 
   const toggleTts = () => {
@@ -416,10 +430,11 @@ export default function BridgeBoard() {
           );
         }
 
+        // 🚨 청각장애인 모드 레이아웃 픽스 적용 완료
         if (a11yMode === 'hearing') {
           return (
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", height: "100%", gap: 12 }}>
-              <div className={isExtremeEmotion ? "pulse-animation" : ""} style={{ flex: 1, background: "#000", borderRadius: 20, border: `4px solid ${emotionColor}`, position: "relative", overflow: "hidden", boxShadow: `0 0 30px ${emotionColor}50` }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 12, minHeight: 0 }}>
+              <div className={isExtremeEmotion ? "pulse-animation" : ""} style={{ flex: 1, background: "#000", borderRadius: 20, border: `4px solid ${emotionColor}`, position: "relative", overflow: "hidden", boxShadow: `0 0 30px ${emotionColor}50`, minHeight: 0 }}>
                 <video ref={remoteVideoRef} autoPlay playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 <video ref={localVideoRef} autoPlay playsInline muted style={{ position: "absolute", top: 20, right: 20, width: 160, height: 120, borderRadius: 12, border: "2px solid #FFF", objectFit: "cover", zIndex: 30 }} />
                 {emotion && (
@@ -428,12 +443,12 @@ export default function BridgeBoard() {
                   </div>
                 )}
               </div>
-              <div style={{ height: 120, background: "#11141E", borderRadius: 16, border: "2px solid rgba(255,255,255,0.1)", padding: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ height: 120, flexShrink: 0, background: "#11141E", borderRadius: 16, border: "2px solid rgba(255,255,255,0.1)", padding: 20, display: "flex", alignItems: "center", justifyContent: "center", overflowY: "auto" }}>
                 {msgs.length > 0 ? (
-                  <p style={{ fontSize: (msgs[msgs.length-1].label === "분노" || msgs[msgs.length-1].label === "불안") ? 28 : 22, fontWeight: (msgs[msgs.length-1].label === "분노" || msgs[msgs.length-1].label === "불안") ? 800 : 500, color: (msgs[msgs.length-1].label === "분노" || msgs[msgs.length-1].label === "불안") ? "#FFF" : "#3DD68C", margin: 0, textAlign: "center", width: "100%" }}>{msgs[msgs.length-1].text}</p>
+                  <p style={{ fontSize: (msgs[msgs.length-1].label === "분노" || msgs[msgs.length-1].label === "불안") ? 28 : 22, fontWeight: (msgs[msgs.length-1].label === "분노" || msgs[msgs.length-1].label === "불안") ? 800 : 500, color: (msgs[msgs.length-1].label === "분노" || msgs[msgs.length-1].label === "불안") ? "#FFF" : "#3DD68C", margin: 0, textAlign: "center", width: "100%", wordBreak: "keep-all" }}>{msgs[msgs.length-1].text}</p>
                 ) : <span style={{ color: "#555", fontSize: 16 }}>상대방의 음성이 감지되면 이곳에 실시간 자막이 표시됩니다.</span>}
               </div>
-              <div style={{ display: "flex", gap: 10 }}>
+              <div style={{ display: "flex", gap: 10, flexShrink: 0 }}>
                 <button onClick={handleCallConnect} style={{ flex: 1, background: "linear-gradient(135deg,#4F8EF7,#2F6ED7)", color: "#fff", border: "none", borderRadius: 12, padding: "16px", fontWeight: 800, fontSize: 16, cursor: "pointer" }}>📞 영상 연결</button>
                 <button onClick={toggleStt} style={{ flex: 1, background: isSttOn ? "#3DD68C" : "rgba(255,255,255,0.05)", color: isSttOn ? "#000" : "#fff", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "16px", fontWeight: 800, fontSize: 16, cursor: "pointer" }}>{isSttOn ? "💬 실시간 자막 (켜짐)" : "📝 자동 자막 켜기"}</button>
               </div>
@@ -559,8 +574,32 @@ export default function BridgeBoard() {
                 if (e.nativeEvent.isComposing) return;
                 if (e.key === "Enter") handleSend();
               }} 
-              placeholder="텍스트를 직접 입력하여 감정을 분석하세요..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", color: "#E2E4F0", fontSize: 13 }} />
+              placeholder="텍스트를 직접 입력하거나 우측의 마이크 버튼을 누르고 말씀하세요..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", color: "#E2E4F0", fontSize: 13 }} />
+            
             <button onClick={handleSend} style={{ background: "#4F8EF7", border: "none", borderRadius: 7, color: "#fff", fontSize: 12, fontWeight: 600, padding: "6px 14px", cursor: "pointer" }}>전송</button>
+            
+            {/* 🎤 PTT (누르고 말하기) 버튼 */}
+            <button 
+              onMouseDown={startPttRecording}
+              onMouseUp={stopPttRecording}
+              onMouseLeave={stopPttRecording}
+              onTouchStart={startPttRecording}
+              onTouchEnd={stopPttRecording}
+              style={{ 
+                background: isSttOn ? "#EF4444" : "#3DD68C", 
+                border: "none", 
+                borderRadius: 7, 
+                color: "#fff", 
+                fontSize: 12, 
+                fontWeight: 600, 
+                padding: "6px 14px", 
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                boxShadow: isSttOn ? "0 0 10px rgba(239,68,68,0.5)" : "none"
+              }}
+            >
+              {isSttOn ? "🎙️ 듣는 중..." : "🎤 누르고 말하기"}
+            </button>
           </div>
         </div>
 

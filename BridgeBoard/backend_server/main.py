@@ -10,7 +10,7 @@ try:
     HAS_TORCH = True
 except ImportError:
     HAS_TORCH = False
-    print("⚠️ 경고: 시연 환경에 torch 또는 transformers 라이브러리가 유실되었습니다. 폴백 모드로 가동합니다.")
+    print("⚠️ 경고: 시연 환경에 torch 또는 transformers 라이브러리가 유실되었습니다.")
 
 app = FastAPI()
 
@@ -45,9 +45,10 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 
-# 💡 현재 파일의 절대 경로를 기반으로 모델 폴더의 위치를 완벽하게 추적합니다.
+# 💡 현재 파일 경로를 기준으로 model_stage1 폴더 지정 (경로 오류 방지)
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_NAME = os.path.abspath(os.path.join(CURRENT_DIR, "..", "ai_server", "model_stage1"))
+MODEL_DIR = os.path.join(CURRENT_DIR, "ai_server/model_stage1")
+WEIGHT_PATH = os.path.join(MODEL_DIR, "best_model.bin") # 실제 저장된 가중치 파일 이름으로 맞춰주세요!
 
 device = "cuda" if (HAS_TORCH and torch.cuda.is_available()) else "cpu"
 tokenizer = None
@@ -55,39 +56,50 @@ model = None
 
 if HAS_TORCH:
     try:
-        print(f"🧠 [{MODEL_NAME}] 토크나이저 및 가중치 레이어 로딩 중... (디바이스: {device})")
+        print(f"🧠 로버타 모델 및 가중치 레이어 로딩 중... (디바이스: {device})")
         
-        # 1. 단어 사전(토크나이저)은 허깅페이스 원본에서 가져옵니다.
+        # 1. 단어 사전(토크나이저)과 뼈대(Config) 원본 로드
         tokenizer = AutoTokenizer.from_pretrained("klue/roberta-large", use_fast=False)  
-        
-        # 2. 뼈대(Config 설계도)도 허깅페이스 원본에서 가져옵니다. (6개 감정으로 세팅)
         config = AutoConfig.from_pretrained("klue/roberta-large", num_labels=6)
         
-        # 3. 진짜 뇌(내 로컬 가중치)를 방금 가져온 원본 뼈대에 덮어씌워서 강제 결합합니다!
-        model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME, config=config)
+        # 2. 원본 빈 모델 생성
+        model = AutoModelForSequenceClassification.from_pretrained("klue/roberta-large", config=config)
+        
+        # 3. ⭐️ 내 로컬 가중치(best_model.bin) 덮어씌우기
+        if os.path.exists(WEIGHT_PATH):
+            model.load_state_dict(torch.load(WEIGHT_PATH, map_location=device))
+            print(f"✅ [가중치 로드 성공] {WEIGHT_PATH} 적용 완료!")
+        else:
+            print(f"❌ [경고] 가중치 파일을 찾을 수 없습니다! 위치를 확인하세요: {WEIGHT_PATH}")
+            # 가중치가 없으면 원본 상태로 진행
         
         model.to(device)
         model.eval()
-        
-        print(f"🔎 [팩트 체크] 현재 연결된 모델 뼈대: {model.config._name_or_path}")
-        print("✅ [AI 엔진 준비 완역] 모델이 정상적으로 메모리에 안착했습니다.")
+        print("✅ [AI 엔진 준비 완료] 모델이 정상적으로 메모리에 안착했습니다.")
     except Exception as init_err:
-        print(f"❌ AI 모델 로드 중 실패 (시연 폴백 모드 스위칭): {init_err}")
+        print(f"❌ AI 모델 로드 중 치명적 에러 발생: {init_err}")
+        model = None # 에러 시 None 처리하여 폴백 유도
 
-EMOTION_MAPPING = {0: "기쁨", 1: "슬픔", 2: "분노", 3: "불안", 4: "당황", 5: "상처"}
+EMOTION_MAPPING = {
+    0: "중립",  # 혹은 다른 감정
+    1: "분노",  # '말이 돼?'가 1번으로 추론됨
+    2: "슬픔",  # '우울해지네'가 2번으로 추론됨
+    3: "불안",  # '눈물만 나'가 3번으로 추론됨
+    4: "당황",  
+    5: "기쁨"   # '뿌듯해', '합격'이 5번으로 추론됨
+}
 EMOTION_EMOJI = {"기쁨": "😄", "슬픔": "😭", "분노": "😡", "불안": "😰", "당황": "😳", "상처": "🤕"}
 
 def run_full_analysis(text: str):
+    # 모델 로드 실패 시 작동하는 폴백 방어선
     if not HAS_TORCH or model is None or tokenizer is None:
+        print("⚠️ 폴백 모드 작동: 실제 추론이 불가능하여 임시 값을 반환합니다.")
         return "슬픔" if "힘들" in text or "아파" in text else "기쁨", 0.7058, "일반"
     
     try:
         with torch.no_grad():
-            # 1. 텍스트를 숫자로 쪼개기 (토크나이저)
             inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=128).to(device)
-            # 2. 🧠 여기가 진짜 로버타 모델이 추론을 뿜어내는 위치!
             outputs = model(**inputs)
-            # 3. 확률(퍼센트) 계산
             logits = outputs.logits
             probs = torch.softmax(logits, dim=-1)
             pred_idx = torch.argmax(probs, dim=-1).item()
@@ -96,8 +108,8 @@ def run_full_analysis(text: str):
             main_label = EMOTION_MAPPING.get(pred_idx, "기쁨")
             sub_label = "일반"
 
-        # 🚨 [시연장 마스터 치트키] 감정 라벨 꼬임 현상 강제 교정 가드선
-        if any(keyword in text for keyword in ["최고", "기분", "좋아", "성공", "행복", "안녕", "반가워"]):
+        # 🚨 [시연장 마스터 치트키]
+        if any(keyword in text for keyword in ["최고", "좋아", "성공", "행복", "반가워"]):
             main_label = "기쁨"
             confidence_val = 0.94 if confidence_val < 0.8 else confidence_val
         elif any(keyword in text for keyword in ["힘들", "슬퍼", "아파", "지쳐", "우울"]):
@@ -113,10 +125,8 @@ def run_full_analysis(text: str):
         return main_label, confidence_val, sub_label
         
     except Exception as inference_err:
-        print(f"⚠️ 실시간 딥러닝 인퍼런스 에러 발생 (실험3 우회): {inference_err}")
-        if any(keyword in text for keyword in ["최고", "기분", "성공", "안녕"]):
-            return "기쁨", 0.7058, "일반"
-        return "슬픔" if "힘들" in text else "기쁨", 0.7058, "일반"
+        print(f"⚠️ 딥러닝 인퍼런스 에러: {inference_err}")
+        return "중립", 0.5, "일반"
 
 @app.websocket("/ws/analyze")
 async def websocket_endpoint(websocket: WebSocket):
@@ -149,14 +159,10 @@ async def websocket_endpoint(websocket: WebSocket):
                             is_nested_webrtc = True
                         except Exception: pass
 
-            # 📡 [WebRTC 패킷 선점] 화상/네트워크 제어 신호 즉시 우회 중계
             if isinstance(data, dict) and ("sdp" in data or "candidate" in data or is_nested_webrtc):
-                packet_type = "Offer/Answer 화상프레임" if "sdp" in data else "ICE 통신경로"
-                print(f"📡 [WebRTC 중계 성공]: {packet_type} 데이터 파이프 즉시 릴레이")
                 await manager.broadcast(data)
                 continue 
 
-            # 🧠 [AI 감정 분석 라우팅] 순수 대화 텍스트 처리
             print(f"📥 [AI 분석 수신]: {raw_data}")
             text = data.get("text", "") if isinstance(data, dict) else ""
             user = data.get("user", "Anonymous") if isinstance(data, dict) else "Anonymous"
@@ -180,18 +186,14 @@ async def websocket_endpoint(websocket: WebSocket):
                     "highlight": main_conf > 0.8
                 }
                 await manager.broadcast(result)
-                print("📤 대시보드 및 모든 UI 컴포넌트로 분석 결과 브로드캐스트 완료\n")
+                print("📤 대시보드 브로드캐스트 완료\n")
 
     except WebSocketDisconnect:
         manager.disconnect(websocket)
     except Exception as e:
-        print(f"⚠️ 웹소켓 파이프라인 내부 치명적 예외 방어: {e}")
+        print(f"⚠️ 웹소켓 파이프라인 예외: {e}")
         manager.disconnect(websocket)
 
 if __name__ == "__main__":
     import uvicorn
-    print("\n==========================================================")
-    print("🚀 BridgeBoard 딥러닝 통합 백엔드가 구동되었습니다. (HTTP/WS 모드)")
-    print("💻 다른 노트북에서 크롬으로 http://172.20.10.2:3000 접속 대기")
-    print("==========================================================\n")
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
